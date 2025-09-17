@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        h4 {
+            background-color: #0b66bc;
+            color: #f0f0f0;
+        }
+        small {
+            color: #ff0000;
+        }
+        img{
+            width: 80px;
+            margin-right: 10px
+        }
+    </style>
+</head>
+<body>
+<h4>Quality Control Notification</h4>
+<p>Hello <b>{{ firstName }}</b> <b>{{ lastName }}</b>,</p>
+<p>I hope this email finds you well. this is an important email to take in consideration, we must collaborate to enhance the audit compliance indicator at the center level. So, as part of our continuous efforts to achieve our goals and to ensure good practice of CMMI processes in JIRA-KOSIN, we are conducting an internal audit of the task lifecycle in JIRA. In this context, you will find below all details about the internal NCs detected and corrective actions. Please forward this email to the relevant persons to assist in the correction.</p>
+
+
+<p>{{ bodyMessage }}</p>
+<p>Best regards,</p>
+<p><b> NTT DATA Quality Control</b> Team</p>
+<!--<img src="cid:nttLOGO"/><img src="cid:qualityControlApp"/><br>-->
+<div style="background-color: #001834; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center;">
+    <div>
+        <p style="margin: 0;">© 2025 NTT DATA, Inc. All rights reserved.</p>
+        <p style="margin: 0;">Confidential. For internal use only.</p>
+    </div>
+    <div>
+        <img src="cid:nttLOGO" alt="NTT DATA Logo" style="height: 40px;" />
+    </div>
+</div>
+<small>If you notice any anomalies regarding alerts (incorrect recipient, alert text not corresponding to the situation...), please report them to the service desk: <a href="mailto:ServiceDeskEMEAL@emeal.nttdata.com">ServiceDeskEMEAL&#64;emeal.nttdata.com</a></small>
+</body>
+</html>
