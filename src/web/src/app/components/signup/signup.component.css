@@ -1,0 +1,117 @@
+.login-page {
+  background-color: #002138;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.border-login {
+  background: #fff;
+  border: 5px solid rgba(255, 255, 255, 1);
+  border-radius: 10px;
+  box-shadow: 8px 8px 4px rgba(255, 255, 255, 0.3), -8px -8px 4px rgba(255, 255, 255, 0.3);
+  padding: 40px;
+  width: 90%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.brand-title {
+  width: 120px;
+}
+
+.Title {
+  margin: 20px 0;
+  font-family: Roboto, sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+  color: #32607C;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  width: 100%;
+}
+
+.login-image {
+  width: 250px;
+  max-width: 90%;
+}
+
+.login-form {
+  width: 300px;
+}
+
+.form-elts label {
+  font-family: Poppins, sans-serif;
+  font-size: 14px;
+  color: #32607C;
+}
+
+.inputs {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #c5c5c5;
+  border-radius: 8px;
+  padding: 0 10px;
+  font-family: Poppins, sans-serif;
+}
+
+.loginBtn, .mLoginBtn {
+  width: 100%;
+  height: 45px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: Poppins, sans-serif;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.loginBtn {
+  background-color: #1d4961;
+  color: #fff;
+  border: none;
+}
+
+.mLoginBtn {
+  background-color: #f4f4f4;
+  color: #333;
+  border: 1px solid #b8b8b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.microsoftLogo {
+  width: 24px;
+}
+
+.success, .error {
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.success {
+  color: green;
+}
+
+.error {
+  color: red;
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+}

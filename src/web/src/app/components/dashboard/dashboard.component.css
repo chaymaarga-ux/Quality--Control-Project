@@ -1,0 +1,202 @@
+.main {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  /*position: fixed;*/
+  overflow-x:hidden;
+ /* overflow-y:hidden; */
+  overflow-y: auto; /* ✅ permet le scroll vertical */
+  max-height: 100vh; /* ✅ limite à la taille de l'écran */
+}
+.table-container {
+ /* max-height: 500px; /* ajustable selon besoin */
+  overflow-y: auto;
+  margin: 0 auto; /* ✅ centre horizontalement */
+  padding: 0;
+  max-height: 70vh; /* ou 60vh selon besoin */
+  width: 100%;
+}
+
+.data-table td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+ /* max-width: 200px; */
+}
+.data-table {
+ /* max-height: 500px; /* ajuste selon ton besoin */
+  overflow-y: auto;
+}
+
+
+
+.container {
+  padding: 0;
+  margin: 0;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.dashboard-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #5b81a3;
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.btn-add {
+  background-color: #4b7bba;
+  color: white;
+}
+
+.btn-edit {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.btn-more {
+  background-color: transparent;
+  color: #666;
+  font-size: 20px;
+  padding: 4px;
+}
+
+/*.filter-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}*/
+
+.filter-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  color: white;
+  font-weight: 600;
+}
+
+.filter-header-orange {
+  background-color: #e67e4c;
+}
+
+.filter-header-green {
+  background-color: #82b574;
+}
+
+.filter-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.filter-icon {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.data-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #666;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.data-table tr:hover {
+  background-color: #f8f9fa;
+}
+
+.key-cell {
+  color: #5b81a3;
+  cursor: pointer;
+}
+
+.key-cell:hover {
+  text-decoration: underline;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.status-conforme {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status-aplica {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.status-no-conformidad {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status-no-conformidad-info {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.sort-icon {
+  color: #999;
+  font-size: 12px;
+  margin-left: 4px;
+}
+
+@media (max-width: 1200px) {
+  .filter-sections {
+    grid-template-columns: 1fr;
+  }
+}

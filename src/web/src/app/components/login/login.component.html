@@ -1,0 +1,35 @@
+<div class="login-page">
+  <div class="border-login">
+    <div>
+      <img class="brand-title" src="assets/images/GroupIlem.png" alt="" />
+    </div>
+    <div class="content-main">
+      <h2 class="Title">Quality Control Project</h2>
+      <div class="content">
+        <div>
+          <img class="login-image" src="assets/images/Asset-login.png" width="300px" alt="" />
+        </div>
+        <div class="login-form">
+          <div class="form">
+            <div class="form-elts">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" class="inputs" [(ngModel)]="email" autocomplete="off">
+            </div>
+            <div class="form-elts">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" class="inputs" [(ngModel)]="password" autocomplete="off">
+            </div>
+            <button class="loginBtn" (click)="normalLogin()">Log in</button>
+            <button class="loginBtn" (click)="goToSignup()">Sign up</button>
+            <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+
+            <button class="mLoginBtn" >
+              <img src="assets/images/microsoft.png" alt="microsoft" class="microsoftLogo"/>
+              S'authentifier avec Microsoft
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,159 @@
+<div class="main">
+  <div class="container">
+    <div class="dashboard-header">
+      <h1 class="dashboard-title">NCs Management - MOROCCO</h1>
+      <!--<div class="header-actions">
+        <button class="btn btn-add">Add gadget</button>
+        <button class="btn btn-edit">Edit layout</button>
+        <button class="btn btn-more">···</button>
+      </div>-->
+    </div>
+
+    <div class="filter-sections">
+      <!-- Left Section - Orange -->
+            <!--<div class="filter-card">
+              <div class="filter-header filter-header-orange">
+                <span>Filter Results: Estado de NCs a partir de Marzo2025</span>
+                <div class="filter-actions">
+                  <span class="filter-icon"><i class="fas fa-plus"></i></span>
+                  <span class="filter-icon"><i class="fas fa-expand"></i></span>
+                  <span class="filter-icon">···</span>
+                </div>
+              </div>
+              <table class="data-table">
+                <thead>
+                <tr>
+                  <th>Key</th>
+                  <th>Free Text Field 4</th>
+                  <th>Aggrupation</th>
+                  <th>Free Combo Field 1</th>
+                  <th>Created <i class="fas fa-sort sort-icon"></i></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of leftTableData">
+                  <td class="key-cell">{{item.key}}</td>
+                  <td>{{item.freeTextField4}}</td>
+                  <td><span class="status-badge" [ngClass]="getStatusClass(item.aggrupation)">{{item.aggrupation}}</span></td>
+                  <td>{{item.freeComboField1}}</td>
+                  <td>{{item.created}}</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+-->
+      <!-- Right Section - Green -->
+            <div class="filter-card">
+              <div class="filter-header filter-header-green">
+                <span>Filter Results</span>    <!--: ptoject name - Open & In progress NCs -->
+                <!--<div class="filter-actions">
+                  <span class="filter-icon"><i class="fas fa-plus"></i></span>
+                  <span class="filter-icon"><i class="fas fa-expand"></i></span>
+                  <span class="filter-icon">···</span>
+                </div>-->
+              </div>
+              <div class="table-container">
+              <table class="data-table">
+                <thead>
+                <tr>
+                  <th style="white-space: nowrap;" >Free Text Field 4</th>
+                  <th style="white-space: nowrap;" >Aggrupation</th>
+                  <th style="white-space: nowrap;" >Key</th>
+                  <th style="white-space: nowrap;" >Free Combo Field 1</th>
+                  <th style="white-space: nowrap;" >Created <!--<i class="fas fa-sort sort-icon"></i>--></th>
+                </tr>
+                </thead>
+                <tbody>
+              <!--  <tr *ngFor="let item of rightTableData">
+                  <td>test</td>
+                  <td><span class="status-badge" [ngClass]="getStatusClass(item.aggrupation)">test</span></td>
+                  <td class="key-cell">test</td>
+                  <td>test</td>
+                  <td>test</td>
+                </tr>-->
+                <tr *ngFor="let item of allResults">
+                  <td>{{ item.project?.name || item.project?.projectKey }}</td>
+                  <td>{{ item.issue?.taskKey }}</td>
+                  <td>{{ item.issue?.summary }}</td>
+                  <td>{{ item.issue?.status }}</td>
+                  <td>{{ item.issue?.createdDate | date }}</td>
+                </tr>
+
+                </tbody>
+              </table>
+            </div>
+            </div>
+         <!-- </div>
+        </div>
+      </div>
+
+-->
+
+
+
+
+
+
+     <!-- <div class="dashboard-header">
+        <h1 class="dashboard-title">NCs Management - MOROCCO</h1>
+      </div>
+
+      &lt;!&ndash; 💡 Pour chaque projet &ndash;&gt;
+      <div *ngFor="let projectKey of projectKeys">
+        <div *ngFor="let filterCode of objectKeys(groupedResults[projectKey])">
+
+          &lt;!&ndash; ✅ Carte stylée &ndash;&gt;
+          <div class="filter-card">
+            <div class="filter-header filter-header-green">
+              <span>Résultats : {{ projectKey }} - Filtre {{ filterCode }}</span>
+            </div>
+
+            &lt;!&ndash; ✅ Tableau si données &ndash;&gt;
+            <table class="data-table" *ngIf="groupedResults[projectKey]?.[filterCode]?.length > 0; else noResults">
+              <thead>
+              <tr>
+                <th>Free Text Field 4</th>
+                <th>Aggrupation</th>
+                <th>Key</th>
+                <th>Free Combo Field 1</th>
+                <th>Created</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let issue of groupedResults[projectKey][filterCode]">
+                <td>{{ issue.fields?.customfield_10010 || '-' }}</td>
+                <td>
+              <span class="status-badge" [ngClass]="getStatusClass(issue.fields?.status?.name)">
+                {{ issue.fields?.status?.name }}
+              </span>
+                </td>
+                <td class="key-cell">{{ issue.key }}</td>
+                <td>{{ issue.fields?.customfield_10011 || '-' }}</td>
+                <td>{{ issue.fields?.created | date:'dd/MM/yyyy' }}</td>
+              </tr>
+              </tbody>
+            </table>
+
+            &lt;!&ndash; 🚫 Si aucun ticket &ndash;&gt;
+            <ng-template #noResults>
+              <p class="empty-msg">There is no tickets for this filter.</p>
+            </ng-template>
+          </div>
+
+        </div>
+      </div>
+
+-->
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>

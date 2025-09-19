@@ -1,0 +1,69 @@
+
+<div class="login-page">
+  <div class="border-login">
+    <div>
+      <img class="brand-title" src="assets/images/GroupIlem.png" alt="" />
+    </div>
+    <div class="content-main">
+      <h2 class="Title">Create a new account</h2>
+      <div class="content">
+        <div>
+          <img class="login-image" src="assets/images/Asset-login.png" width="300px" alt="" />
+        </div>
+        <div class="login-form">
+          <div class="form">
+            <div class="form-elts">
+              <label for="firstName">firstName</label>
+              <input type="text" id="firstName" name="firstName" class="inputs" [(ngModel)]="firstName" required>
+            </div>
+
+            <div class="form-elts">
+              <label for="lastName">lastName</label>
+              <input type="text" id="lastName" name="lastName" class="inputs" [(ngModel)]="lastName" required>
+            </div>
+
+            <div class="form-elts">
+              <label for="businessUnit">business Unit</label>
+              <input type="text" id="businessUnit" name="businessUnit" class="inputs" [(ngModel)]="businessUnit" required>
+            </div>
+
+            <div class="form-elts">
+              <label for="responsable">responsable</label>
+              <input type="text" id="responsable" name="responsable" class="inputs" [(ngModel)]="responsable" required>
+            </div>
+
+
+            <div class="form-elts">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" class="inputs" [(ngModel)]="email" required>
+            </div>
+            <div class="form-elts">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" class="inputs" [(ngModel)]="password" required>
+            </div>
+
+            <div class="form-elts">
+              <label for="service">service</label>
+              <input type="text" id="service" name="service" class="inputs" [(ngModel)]="service" required>
+            </div>
+
+            <div class="form-elts">
+              <label for="role">role</label>
+              <input type="text" id="role" name="role" class="inputs" [(ngModel)]="role" >
+            </div>
+
+            <button class="loginBtn" (click)="signup()">Sign up</button>
+
+            <p class="success" *ngIf="successMessage">{{ successMessage }}</p>
+            <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+            <button class="mLoginBtn" >
+              <img src="assets/images/microsoft.png" alt="microsoft" class="microsoftLogo"/>
+              S'authentifier avec Microsoft
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

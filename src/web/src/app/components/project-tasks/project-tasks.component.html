@@ -1,0 +1,126 @@
+<div class="content-body">
+  <div class="task-table-container">
+    <div *ngIf="isLoading">Chargement...</div>
+
+    <div *ngIf="error">{{ error }}</div>
+
+    <div *ngIf="!isLoading && !error">
+      <div class="flex justify-content-between align-items-center mb-3">
+        <h2 style="margin-left: 38%">Tasks of project: <span style="color: #4a83a9">{{ projectName }}</span></h2>
+        <button pButton type="button" icon="pi pi-arrow-left" label="Retour"
+                styleClass="p-button-outlined" routerLink="/projects"></button>
+      </div>
+
+      <p-table [value]="tasks" [paginator]="true" [rows]="5" [tableStyle]="{ 'min-width': '50rem' }"
+               [rowsPerPageOptions]="[5, 10, 20]" styleClass="custom-table">
+        <ng-template pTemplate="caption">
+          <div class="flex justify-content-between align-items-center">
+            <!-- Zone de recherche à gauche -->
+            <div class="search-area">
+              <span class="p-input-icon-left">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text"  placeholder="Rechercher..."/>
+              </span>
+            </div>
+
+            <!-- Bouton à droite -->
+            <div class="sync-button p-button-rounded p-button-text p-button-outlined">
+              <p-button icon="pi pi-refresh" iconPos="left" label="Synchronisation Tâches"
+                        styleClass="p-button-outlined" (click)="syncTasksFromJira()"></p-button>
+            </div>
+          </div>
+        </ng-template>
+
+        <ng-template pTemplate="header">
+          <tr>
+<!--
+            <th class="text-center"  style="white-space: nowrap;"  >ID</th>
+-->
+            <th class="text-center"  style="white-space: nowrap;"  >Key</th>
+<!--            <th class="text-center"  style="white-space: nowrap;"  >URL</th>-->
+<!--            <th class="text-center"  style="white-space: nowrap;"  >Type</th>-->
+            <th class="text-center"  style="white-space: nowrap;"  >Summary</th>
+            <th class="text-center"  style="white-space: nowrap;"  >Priority</th>
+            <th class="text-center"  style="white-space: nowrap;"  >Description</th>
+            <th class="text-center"  style="white-space: nowrap;"  >Status</th>
+            <th class="text-center"  style="white-space: nowrap;"  >Issue Type</th>
+<!--            <th class="text-center"  style="white-space: nowrap;"  >Sous-tâche</th>-->
+<!--            <th class="text-center"  style="white-space: nowrap;"  >Assigné</th>-->
+         <!--   <th class="text-center"  style="white-space: nowrap;"  >Nom du rapporteur</th>
+            <th class="text-center"  style="white-space: nowrap;"  >Email du rapporteur</th>
+            <th class="text-center"  style="white-space: nowrap;"  >Nom d'affichage du rapporteur</th>-->
+            <th class="text-center"  style="white-space: nowrap;"  >Assignee Email</th>
+            <th class="text-center"  style="white-space: nowrap;"  >Assignee Display Name</th>
+      <!--      <th class="text-center"  style="white-space: nowrap;"  >Email du créateur</th>
+            <th class="text-center"  style="white-space: nowrap;"  >Nom d'affichage du créateur</th>-->
+            <th class="text-center"  style="white-space: nowrap;"  >Created Date</th>
+            <th class="text-center"  style="white-space: nowrap;"  >Updated Date</th>
+          <!--  <th class="text-center"  style="white-space: nowrap;"  >Date de début</th>
+            <th class="text-center"  style="white-space: nowrap;"  >Date d'échéance</th>-->
+            <th class="text-center"  style="white-space: nowrap;"  >Resolution Date</th>
+            <th class="text-center"  style="white-space: nowrap;"  >Internal Estimate</th>
+<!--            <th class="text-center"  style="white-space: nowrap;"  >Business Estimate</th>-->
+            <th class="text-center"  style="white-space: nowrap;"  >Estimate</th>
+            <th class="text-center"  style="white-space: nowrap;"  >ETC</th>
+            <th class="text-center"  style="white-space: nowrap;"  >Remaining</th>
+            <th class="text-center"  style="white-space: nowrap;"  >Logged Hours</th>
+            <th class="text-center" style="white-space: nowrap;">Hours (incl. Sub-tasks)</th>
+            <th class="text-center"  style="white-space: nowrap;"  >Project Name</th>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-task>
+          <tr style="height: 1.2cm" class="cursor-pointer hover:surface-200">
+<!--
+            <td class="text-center" style="border-color: white;">{{ task.taskId }}</td>
+-->
+            <td class="text-center" style="border-color: white;  white-space: nowrap;">
+              <a (click)="navigateToSubTasks(task)" class="text-blue-500" style="color: black; cursor: pointer; ">
+                {{ task.taskKey }}
+              </a>
+            </td>
+<!--            <td class="text-center" style="border-color: white;">{{ task.url }}</td>-->
+<!--            <td class="text-center" style="border-color: white;">{{ task.type }}</td>-->
+            <td class="text-center" style="border-color: white;  white-space: nowrap; ">{{ task.summary }}</td>
+            <td class="text-center" style="border-color: white;">{{ task.priority }}</td>
+            <td class="text-center" style="border-color: white;">{{ task.description | slice:0:50 }}{{ task.description?.length > 50 ? '...' : '' }}</td>
+            <td class="text-center" style="border-color: white;">{{ task.status }}</td>
+            <td class="text-center" style="border-color: white;">{{ task.issueTypeName }}</td>
+<!--            <td class="text-center" style="border-color: white;">{{ task.issueTypeSubTask ? 'Oui' : 'Non' }}</td>-->
+<!--            <td class="text-center" style="border-color: white;">{{ task.assignee }}</td>-->
+          <!--  <td class="text-center" style="border-color: white;">{{ task.reporterName }}</td>
+            <td class="text-center" style="border-color: white;">{{ task.reporterEmail }}</td>
+            <td class="text-center" style="border-color: white;">{{ task.reporterDisplayName }}</td>-->
+            <td class="text-center" style="border-color: white;">{{ task.assigneeEmail }}</td>
+            <td class="text-center" style="border-color: white;">{{ task.assigneeDisplayName }}</td>
+           <!-- <td class="text-center" style="border-color: white;">{{ task.creatorEmail }}</td>
+            <td class="text-center" style="border-color: white;">{{ task.creatorDisplayName }}</td>-->
+            <td class="text-center" style="border-color: white;">{{ task.createdDate | date:'dd/MM/yyyy' }}</td>
+            <td class="text-center" style="border-color: white;">{{ task.updatedDate | date:'dd/MM/yyyy' }}</td>
+            <!--<td class="text-center" style="border-color: white;">{{ task.startDate | date:'dd/MM/yyyy' }}</td>
+            <td class="text-center" style="border-color: white;">{{ task.dueDate | date:'dd/MM/yyyy' }}</td>-->
+            <td class="text-center" style="border-color: white;">{{ task.resolvedDate | date:'dd/MM/yyyy' }}</td>
+            <td class="text-center" style="border-color: white;">{{ task.internalEstimate }}</td>
+<!--            <td class="text-center" style="border-color: white;">{{ task.salesEstimate }}</td>-->
+            <td class="text-center" style="border-color: white;">{{ task.estimated }}</td>
+            <td class="text-center" style="border-color: white;">{{ task.ETC }}</td>
+            <td class="text-center" style="border-color: white;">{{ task.remaining }}</td>
+            <td class="text-center" style="border-color: white;">{{ task.loggedHours }}</td>
+            <td class="text-center" style="border-color: white;">{{ task.aggregateLoggedHours }}</td>
+            <td class="text-center" style="border-color: white;">{{ projectName }}</td>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="emptymessage">
+          <tr>
+            <td colspan="19" class="text-center">
+              <div>Aucune tâche trouvée pour ce projet</div>
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="footer">
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>

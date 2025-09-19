@@ -1,0 +1,29 @@
+<h2 mat-dialog-title>Add a New Filter</h2>
+<div mat-dialog-content>
+  <mat-form-field class="w-full">
+    <mat-label>Code</mat-label>
+    <input matInput [(ngModel)]="newFilter.code" />
+  </mat-form-field>
+
+  <mat-form-field class="w-full">
+    <mat-label>Nom</mat-label>
+    <input matInput [(ngModel)]="newFilter.name" />
+  </mat-form-field>
+
+  <mat-form-field class="w-full">
+    <mat-label>Description</mat-label>
+    <textarea matInput [(ngModel)]="newFilter.description"></textarea>
+  </mat-form-field>
+
+  <mat-form-field class="w-full">
+    <mat-label>Query</mat-label>
+    <textarea matInput [(ngModel)]="newFilter.query"></textarea>
+  </mat-form-field>
+</div>
+<div *ngIf="errorMessage" class="alert alert-danger">
+  {{ errorMessage }}
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="close()">Annuler</button>
+  <button mat-flat-button color="primary" (click)="addFilter()">Ajouter</button>
+</div>

@@ -1,0 +1,57 @@
+<div class="content-body">
+<!--  <p-messages></p-messages>-->
+  <p-toast position="top-right"></p-toast>
+  <div class="project-table-container">
+  <div *ngIf="isLoading">Chargement...</div>
+
+  <div *ngIf="error">{{ error }}</div>
+
+  <div *ngIf="!isLoading && !error">
+    <p-table  [value]="filteredProjects" [paginator]="true" [rows]="5" [tableStyle]="{ 'min-width': '50rem' }" [rowsPerPageOptions]="[5, 10, 20]" styleClass="custom-table">
+      <ng-template pTemplate="caption">
+        <div class="flex justify-content-between align-items-center">
+          <!-- Zone de recherche à gauche -->
+          <div class="search-area">
+      <span class="p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input pInputText type="text" [(ngModel)]="searchKeyword" (input)="filterProjects()" placeholder="Rechercher..."/>
+      </span>
+          </div>
+
+          <!-- Bouton à droite -->
+          <div class="sync-button p-button-rounded p-button-text p-button-outlined ">
+            <p-button icon="pi pi-refresh" iconPos="left" label="Synchronisation Jira"
+                      styleClass="p-button-outlined" (click)="syncProjectsFromJira()"></p-button>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template pTemplate="header">
+        <tr>
+          <th class="text-center"  style="width:25% ">Project</th>
+          <th class="text-center" style="width:25%">Project key</th>
+          <th class="text-center" style="width:25%">Project category</th>
+          <th class="text-center" style="width:25%">Project lead</th>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-project>
+        <tr style="height: 1.2cm"  class="cursor-pointer hover:surface-200">
+          <td class="text-center" style="border-color: white;">
+            <a (click)="navigateToProjectTasks(project)" class="text-blue-500" style="color: black; cursor: pointer; ">
+              {{ project.name }}
+            </a>
+          </td>          <td class="text-center" style="border-color: white;">{{ project.projectKey }}</td>
+          <td class="text-center" style="border-color: white;">{{ project.category || 'NA' }}</td>
+          <td class="text-center" style="border-color: white;">{{ project.lead || 'NA' }}</td>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="footer">
+      </ng-template>
+    </p-table>
+    <p-toast />
+
+  </div>
+</div>
+</div>

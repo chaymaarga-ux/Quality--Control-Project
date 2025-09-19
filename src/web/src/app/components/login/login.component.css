@@ -1,0 +1,136 @@
+.login-page {
+  overflow-y:hidden;
+  background-color: #002138;
+  height: 100vh;
+}
+
+.border-login {
+  margin: 6% auto;
+  padding: 10vh;
+  width: 70%;
+  height: auto; /* Changed from fixed height to auto to fit content */
+  border: 5px solid rgba(255, 255, 255, 1);
+  border-radius: 5px;
+  background: #FFFFFF;
+  box-shadow: 8px 8px 4px 0px rgba(255, 255, 255, 0.3), -8px -8px 4px 0px rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+@media only screen and (max-width: 1440px) {
+  .border-login {
+    padding: 5vh;
+  }
+}
+
+.Title {
+  margin-top: 2%;
+  font-family: Roboto, sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 63.28px;
+  text-align: center;
+  color: #32607C;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+}
+.content-main{
+  display: flex;
+  flex-direction: column;
+
+}
+.login-form {
+  margin-top: 5%;
+
+  display: flex;
+  justify-content: center;
+}
+.brand-title {
+  width: 120px;
+  margin-left:0;
+}
+.se-connecter {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 29.3px;
+  text-align: center;
+  color: white;
+  background: #32607C;
+  height: 50px;
+  width: 200px; /* Set a fixed width for the button */
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 20px; /* Add margin to separate from the image */
+}
+
+.login-image {
+  margin-top: 20px; /* Add margin to separate from the title */
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+.loginBtn{
+  background-color: #1d4961;
+  border: 1px solid #000000;
+  text-align: center;
+  border-radius: 30px;
+  padding: 10px;
+  font-size: 13px;
+  font-family: poppins;
+  font-weight: 600;
+  color: white;
+  height: 45px;
+  width: 300px;
+}
+
+.mLoginBtn {
+  cursor: pointer;
+  background-color: #f4f4f4;
+  border-radius: 30px;
+  border: 1px solid #b8b8b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5%;
+  width: 300px;
+  font-size: 13px;
+  font-family: poppins;
+  font-weight: 600;
+  height: 45px;
+}
+
+.microsoftLogo {
+  width: 30px;
+}
+
+.inputs {
+  width: 300px;
+  height: 45px;
+  border: 1px solid #c5c5c5;
+  border-radius: 10px;
+  padding: 0 10px;
+  margin: 10px 0;
+  font-family: poppins;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.form-elts {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

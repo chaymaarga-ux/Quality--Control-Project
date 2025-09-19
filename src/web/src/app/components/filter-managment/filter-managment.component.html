@@ -1,0 +1,52 @@
+<div class="main">
+  <h1 class="title text-center mt-4">Filter Management</h1>
+
+  <div class="btn-div">
+    <button class="btn-ajout" (click)="openDialog()">
+      <img src="./assets/images/plus.png" alt="add-icon" class="ajout-icon"/>
+      <span class="label" style="color:white">Add filter</span>
+    </button>
+  </div>
+
+  <div class="table-container">
+    <table class="table-body">
+      <tr class="first-champ">
+        <th class="text-center"  style="white-space: nowrap;" >Code</th>
+        <th class="text-center"  style="white-space: nowrap;" >Nom</th>
+        <th class="text-center"  style="white-space: nowrap;" >Description</th>
+        <th class="text-center"  style="white-space: nowrap;" >Query</th>
+        <th class="text-center"  style="white-space: nowrap;" >Actions</th>
+      </tr>
+
+      <tr *ngFor="let filter of filters">
+        <ng-container *ngIf="!filter.selected; else editMode">
+          <td>{{ filter.code }}</td>
+          <td>{{ filter.name }}</td>
+          <td>{{ filter.description }}</td>
+          <td>{{ filter.query }}</td>
+          <td style="white-space: nowrap;">
+            <button  class="boutton" (click)="updateFilterForm(filter.filterId, filter)"><img src="assets/images/updateAsset.png"   width="40" height="45"
+                                                      style="margin-left: 12%"/></button>
+            <button class="boutton"  (click)="deleteFilter(filter.filterId!)"><img src="assets/images/delete.png"  width="40" height="45"
+                                                                                   style="margin-left: 12%"/></button>
+          </td>
+        </ng-container>
+
+        <ng-template #editMode>
+          <td><input [(ngModel)]="filter.code" /></td>
+          <td><input [(ngModel)]="filter.name" /></td>
+          <td><input [(ngModel)]="filter.description" /></td>
+          <td><textarea [(ngModel)]="filter.query" rows="2"></textarea></td>
+          <td>
+            <button (click)="updateFilter(filter.filterId, filter)"><img src="assets/images/save.png" width="30"/></button>
+            <button (click)="cancelEdit(filter)"><img src="assets/images/cancel.png" width="30"/></button>
+          </td>
+<!--
+          <pre>{{ filter | json }}</pre>
+-->
+
+        </ng-template>
+      </tr>
+    </table>
+  </div>
+</div>

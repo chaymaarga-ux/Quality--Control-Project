@@ -1,0 +1,106 @@
+.title {
+  font-weight: bold;
+  color: #32607C;
+  font-size: 32px;
+  padding-bottom: 8px;
+}
+.table-body input,
+.table-body textarea {
+  width: 100%;
+  box-sizing: border-box; /* inclut padding/border dans la largeur */
+  padding: 8px; /* optionnel pour un meilleur confort */
+}
+
+.text-center {
+  text-align: center;
+}
+.boutton{
+  border-width : 0px;
+  background-color: transparent !important;
+}
+
+.btn-ajout {
+  background: #FF6600;
+  width: 100%;
+  padding: 8px 15px 8px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid #32607C;
+  border-radius: 5px;
+  outline: none;
+  overflow: hidden;
+  text-align: center;
+}
+
+.lable {
+  color: white;
+  margin-left: 13px;
+  font-size: 18px;
+  font-weight: normal;
+
+}
+
+.btn-filtre {
+  border: 1px solid #C5C5C5;
+  margin-right: 3%;
+  border-radius: 5px;
+
+}
+
+.ajout-icon {
+  height: 25px;
+  width: 25px;
+}
+
+.btn-div {
+  display: flex;
+  float: right;
+  margin-right: 8px;
+  padding-top: 28px;
+}
+
+.projectsTable {
+  width: 1000px;
+  margin-left: 20px;
+  box-shadow: rgb(203, 203, 203) 0px 0px 10px;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+}
+
+
+@media only screen and (min-width: 1520px) {
+  .projectsTable {
+    width: 120%;
+
+  }
+}
+
+th, td {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+  text-align: center;
+
+}
+
+.table-body {
+  background: rgba(234, 243, 248, 1);
+  width: 92%;
+  height: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 11%;
+  overflow-x: auto;
+}
+.main{
+}
+.delete{
+  margin-left: 2%;
+  margin-right: 2%;
+  border:none;
+}

@@ -1,0 +1,163 @@
+<!--
+<div class="app-container">
+  <header class="app-header">
+    <div class="logo">
+      <img src="assets/logo.png" alt="Logo" />
+      <h1>Suivi de Projets Jira</h1>
+    </div>
+    <nav class="navigation">
+      <a routerLink="/projects" routerLinkActive="active">Projets</a>
+    </nav>
+  </header>
+
+  <main class="app-content">
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer class="app-footer">
+    <p>&copy; 2025 - Application de Suivi de Projets</p>
+  </footer>
+</div>
+-->
+
+<ng-container *ngIf="isLoggedIn(); else loginBlock">
+<!-- Main wrapper start -->
+<div >
+  <div id="main-wrapper">
+
+<!--     Nav header start -->
+    <div class="nav-header">
+
+  <!--    <div class="menu-toggle">
+        <img src="assets/img.png">
+        <span class="line"></span><span class="line"></span><span class="line"></span>
+      </div>-->
+
+      <div class="nav-control">
+        <div class="hamburger">
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+        </div>
+      </div>
+
+
+      <img src="assets/images/img_5.png" class="logo" width="140">
+      <!--<div class="nav-control">
+        <div>
+          <img src="assets/img.png">
+          <span class="line"></span><span class="line"></span><span class="line"></span>
+        </div>
+      </div>-->
+    </div>
+<!--     Nav header end -->
+
+    <!-- Header start -->
+    <div class="header" (click)="handleOutsideClick($event)">
+      <div class="header-content">
+        <nav class="navbar navbar-expand">
+          <div class="collapse navbar-collapse justify-content-between">
+            <div class="header-left">
+              <div class="dashboard_bar">
+                <!-- Contenu de la barre de tableau de bord -->
+              </div>
+            </div>
+            <ul class="navbar-nav header-right">
+
+              <li class="nav-item dropdown header-profile">
+                <!-- Trigger image -->
+                <a href="javascript:void(0);" (click)="togglePopup()">
+                  <img src="assets/images/profile11.png" width="50" alt="Profile Image"/>
+                </a>
+
+                <!-- Popup -->
+                <div class="custom-popup" [class.show]="isPopupVisible">
+                  <div class="popup-content">
+                    <div class="popup-header">
+                      <h5 class="inline">
+                        <button type="button" class="close-btn" (click)="togglePopup()">&times;</button>
+                      </h5>
+
+                    </div>
+
+                    <div class="profile-info">
+                      <div class="personnal-info">
+                        <div classe="inline">
+                          <img src="assets/images/profile2.png"  alt="Profile Image" class="profile-img" >
+                          <div class="info-perso">
+                            <h4 class="profile-name" style="color:#FF6600 !important;">{{ person?.lastName }} {{ person?.firstName }}</h4>
+                            <p class="profile-email">{{ person?.email }}</p>
+                          </div>
+                        </div>
+                        <div class="info-pro">
+                          <p class="info-pro-text"><strong class="info-pro-text-title">Rôle:</strong> {{ person?.role }}</p>
+                          <p class="info-pro-text"><strong class="info-pro-text-title">Business Unit:</strong> {{ person?.businessUnit }}</p>
+                          <p class="info-pro-text"><strong class="info-pro-text-title">Service:</strong> {{ person?.service }}</p>
+                          <p class="info-pro-text"><strong class="info-pro-text-title">Responsable:</strong> {{ person?.responsable }}</p>
+
+
+                        </div>
+                      </div>
+                      <button type="button" class="deconnexion-button" (click)="logout()">
+                        <img src="assets/images/logout.png" alt="Logout Icon" class="logoutic">Déconnexion
+                      </button>
+
+                    </div>
+                    <div class="popup-footer">
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!-- Header end -->
+
+    <!-- Sidebar start -->
+    <div class="deznav">
+      <div class="deznav-scroll">
+        <ul class="metismenu" id="menu">
+          <a routerLink="/dashboard" class="menu-item" routerLinkActive="active">
+            <img src="assets/images/dashboard.png" class="icon">
+            <span class="side-text">Dashboard</span>
+          </a>
+          <a routerLink="/projects" class="menu-item" routerLinkActive="active">
+            <img src="assets/images/Request.png" class="icon">
+            <span class="side-text">Projects</span>
+          </a>
+          <a routerLink="/filter" class="menu-item" routerLinkActive="active">
+            <img src="assets/images/GestionCategories.png" class="iconn">
+            <span class="side-text">Filters</span>
+          </a>
+         <!-- <a routerLink="/project-tasks" class="menu-item" routerLinkActive="active">
+            <img src="assets/images/GestionCategories.png" class="iconn">
+            <span class="side-text">Tasks</span>
+          </a>  <a routerLink="/subtasks" class="menu-item" routerLinkActive="active">
+            <img src="assets/images/category-icon.png" class="iconAss">
+            <span class="side-text">SubTasks</span>
+          </a>-->
+          <!--<a (click)="syncProjectsFromJira()" class="menu-item" routerLinkActive="active">
+            <img src="assets/images/GestionCategories.png" class="icon">
+            <span class="side-text">Synchronisation Jira</span>
+          </a>-->
+        </ul>
+      </div>
+    </div>
+    <!-- Sidebar end -->
+
+    <!-- Content body start -->
+    <div class="content-body">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+  <!-- Content body end -->
+</div>
+<!-- Main wrapper end -->
+</ng-container>
+<ng-template #loginBlock>
+  <!-- LoginComponent uniquement -->
+  <router-outlet></router-outlet>
+</ng-template>
